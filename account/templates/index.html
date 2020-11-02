@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link type="text/css" href="{% static 'css/first.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+
+<title>Django Blog</title>
+</head>
+<body>
+<h1> What is django ?</h1>
+
+<p style="text-indent:50px; width:50%; margin:10px auto; border-left:solid; border-right:solid; border-width:1px;">Django is a free and open source web application framework, written in Python. A web framework is a set of components that helps you to develop websites faster and easier.
+
+When you're building a website, you always need a similar set of components: a way to handle user authentication (signing up, signing in, signing out), a management panel for your website, forms, a way to upload files, etc.
+
+Luckily for you, other people long ago noticed that web developers face similar problems when building a new site, so they teamed up and created frameworks (Django being one of them) that give you ready-made components to use.
+
+Frameworks exist to save you from having to reinvent the wheel and to help alleviate some of the overhead when you’re building a new site.</p>
+<hr>
+
+<table>
+    <tr >
+        <form action="like/">
+        <button>Like</button>
+        </form>
+        {{ like }}
+
+        <form action="dislike/">
+        <button>Dislike</button>
+        </form>
+        {{ dislike }}
+        </tr>
+</table>
+<ul style="list-style:none; border-left:1px;">
+    <li style="float:left; width:50%;">
+        <form method="POST" action="comment/">{% csrf_token %}
+             <h2>Leave a Comment</h2>
+            {{ form.as_p}}
+            <button>Submit</button>
+        </form>
+    </li>
+    <li style="float:right; width:50%;">
+        <h2>Reviews</h2>
+        {% for i in sec %}
+        <hr>
+        <p style="font-size:85%;">{{i.comment}}</p>
+        <p></p>
+
+        <p><strong>by:</strong>   {{i.name}}</p>
+        {{i.time}}
+        {% endfor %}
+        <hr>
+    </li>
+</ul>
+</body>
+</html>

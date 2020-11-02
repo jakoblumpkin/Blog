@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/first.css' %}">
+    <meta charset="UTF-8">
+    <title>Django</title>
+</head>
+<body>
+<h1> What is django ?</h1>
+<hr>
+
+<table>
+    <tr>
+        <form action="">
+        <button>Like</button>
+        </form>
+        {{ like }}
+
+        <form action="">
+        <button>Dislike</button>
+        </form>
+        {{ dislike }}
+    </tr>
+</table>
+</body>
+</html>
